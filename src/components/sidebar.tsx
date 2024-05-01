@@ -9,7 +9,7 @@ interface SidebarProps{
 export default function Sidebar({ children } : SidebarProps) {
   return (
       <div className="flex">
-          <div className="fixed w-20 h-screen p-4 bg-primary-foreground border-r-[1px] flex flex-col justify-between">
+          <div className="fixed w-20 h-screen p-4 bg-secondary border-r-[1px] flex flex-col justify-between">
               <div className="flex flex-col items-center">
                   <Link href="/">
                       <div className="bg-primary text-white rounded-lg inline-block p-3">
