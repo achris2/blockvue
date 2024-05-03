@@ -1,5 +1,5 @@
-import Image from "next/image"
-import macrovueLogo from "@/app/img/macrovue-logo.svg"
+import Image from "next/image";
+import macrovueLogo from "@/app/img/macrovue-logo.svg";
 export default function Header() {
     return (
         <div className="flex justify-between px-4 pt-4">
