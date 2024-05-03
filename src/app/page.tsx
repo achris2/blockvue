@@ -1,12 +1,14 @@
 import Header from "@/components/header";
 import Latest from "@/components/latest";
 import MainChart from "@/components/mainchart";
-import Sidebar from "@/components/sidebar";
 import TopCards from "@/components/topcards";
 import Head from "next/head";
-import Image from "next/image";
+
 
 export default function Home() {
+  // const [cryptoData, setCryptoData] = useState(null);
+  // const [error, setError] = useState('');
+
   return (
     <>
       <Head>

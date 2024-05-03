@@ -9,34 +9,33 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import { DollarSign } from "lucide-react"; 
-import { fetchCommodityPrices } from "@/services/api";
 import { useEffect, useState } from "react";
 
 export default function TopCards() {
-  const [copperPrices, setCopperPrices] = useState(null);
-  const [error, setError] = useState('');
+  // const [copperPrices, setCopperPrices] = useState(null);
+  // const [error, setError] = useState('');
 
-  useEffect(() => {
-      const fetchData = async () => {
-          try {
-              const prices = await fetchCommodityPrices("Copper");
-              setCopperPrices(prices); // Update state with the fetched prices
-          } catch (error) {
-              console.error("Failed to fetch copper prices:", error);
-              setError("Failed to fetch copper prices");
-          }
-      };
-      fetchData();
-  }, []);
+  // useEffect(() => {
+  //     const fetchData = async () => {
+  //         try {
+  //             const prices = await fetchCommodityPrices("Copper");
+  //             setCopperPrices(prices); // Update state with the fetched prices
+  //         } catch (error) {
+  //             console.error("Failed to fetch copper prices:", error);
+  //             setError("Failed to fetch copper prices");
+  //         }
+  //     };
+  //     fetchData();
+  // }, []);
 
   
-    if (error) {
-      return <div>Error: {error}</div>; // Display error if any
-  }
+  //   if (error) {
+  //     return <div>Error: {error}</div>; // Display error if any
+  // }
 
     return (
       <div className="grid lg:grid-cols-5 gap-4 p-4 lg:justify-between">
-                    {copperPrices && (
+                    {/* {copperPrices && (
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                         <CardTitle className="text-sm font-medium">{copperPrices.name}</CardTitle>
@@ -47,7 +46,7 @@ export default function TopCards() {
                         <p className="text-xs text-muted-foreground">Updated at {new Date(copperPrices.updated * 1000).toLocaleString()}</p>
                     </CardContent>
                 </Card>
-            )}
+            )} */}
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">${}</CardTitle>
