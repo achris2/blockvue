@@ -42,7 +42,7 @@ import { gzip } from "zlib";
 
 
 // CoinCap API 
-interface CryptoAsset {
+export interface CryptoAsset {
     rank: number,
     symbol: string,
     name: string, 
