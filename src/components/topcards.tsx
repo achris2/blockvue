@@ -3,8 +3,6 @@
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
@@ -15,18 +13,15 @@ interface TopCardsProps {
   cryptoData: CryptoAsset[] | null;
 }
 
-export default function TopCards(props: TopCardsProps) {
-
-  const cryptoData = props; 
+export default function TopCards({ cryptoData }: TopCardsProps) {
   if (!cryptoData) {
     return <div>Loading...</div>;  
   }
-
+  // checking API response 
   console.log(cryptoData);
 
   return (
-      <div className="grid lg:grid-cols-5 gap-4 p-4 lg:justify-between">
-        
+    <div className="grid lg:grid-cols-5 gap-4 p-4 lg:justify-between">
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Test</CardTitle>
