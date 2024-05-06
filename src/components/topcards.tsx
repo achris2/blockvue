@@ -18,17 +18,18 @@ interface TopCardsProps {
 export default function TopCards(props: TopCardsProps) {
 
   const cryptoData = props; 
-  console.log(cryptoData);
   if (!cryptoData) {
     return <div>Loading...</div>;  
   }
 
+  console.log(cryptoData);
 
   return (
       <div className="grid lg:grid-cols-5 gap-4 p-4 lg:justify-between">
+        
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">${}</CardTitle>
+            <CardTitle className="text-sm font-medium">Test</CardTitle>
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
