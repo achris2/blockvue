@@ -1,12 +1,12 @@
 "use client"
 
 import Header from "@/components/header";
-import Latest from "@/components/latest";
 import MainChart from "@/components/mainchart";
 import TopCards from "@/components/topcards";
 import { fetchCryptoPrices, CryptoAsset, ApiResponse} from "@/services/api";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import TopCrypto from "@/components/topten";
 
 export default function Home() {
   const [cryptoData, setCryptoData] = useState<CryptoAsset[] | null>(null);
@@ -39,9 +39,9 @@ export default function Home() {
       <main className="bg-secondary min-h-screen">
         <Header />
         <TopCards cryptoData={cryptoData} />
-        <div className="p-4 grid md:grid-cols-3 grid-cols-1 gap-4">
+        <div className="p-4 grid md:grid-cols-2 grid-cols-1 gap-5">
           <MainChart /> 
-          <Latest /> 
+          <TopCrypto cryptoData={cryptoData} /> 
         </div>
         </main>
     </>

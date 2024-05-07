@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AreaChart, Gem, Landmark, Settings, User } from "lucide-react";
-
+import Image from "next/image";
+import macrovueLogo from "@/app/img/macrovue-logo.svg";
 
 interface SidebarProps{
     children: React.ReactNode;
@@ -11,6 +12,12 @@ export default function Sidebar({ children } : SidebarProps) {
       <div className="flex">
           <div className="fixed w-20 h-screen p-4 bg-secondary border-r-[1px] flex flex-col justify-between">
               <div className="flex flex-col items-center">
+              <div>
+                    <Image
+                        src= {macrovueLogo}
+                        alt="macrovue"
+                  />
+                  </div>
                   <Link href="/">
                       <div className="bg-primary text-white rounded-lg inline-block p-3">
                           <Gem size={20} />
