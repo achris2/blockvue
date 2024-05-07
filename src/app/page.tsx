@@ -16,6 +16,7 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const response = await fetchCryptoPrices();
+        console.log("Data received in parent component Page.tsx", response.data[0]); 
         setCryptoData(response.data);
         setError(null);
       } catch (error) {

@@ -14,54 +14,33 @@ interface TopCardsProps {
 }
 
 export default function TopCards({ cryptoData }: TopCardsProps) {
+  console.log("CryptoData received in TopCards.tsx", cryptoData);
+  
   if (!cryptoData) {
+    console.log("cryptoData is still null or undefined"); 
     return <div>Loading...</div>;  
-  }
-  // checking API response 
-  console.log(cryptoData);
+  }; 
+
+
+  // Filter for specific cryptocurrencies
+  const filteredData = cryptoData.filter(asset =>
+    asset.symbol === 'BTC' || asset.symbol === 'ETH' || asset.symbol === 'SOL'
+  );
 
   return (
     <div className="grid lg:grid-cols-5 gap-4 p-4 lg:justify-between">
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Test</CardTitle>
-                <DollarSign className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                <div className="text-2xl font-bold">$45,231.89</div>
-                <p className="text-xs text-muted-foreground">+20.1% from last month</p>
-                </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-                <DollarSign className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                <div className="text-2xl font-bold">$45,231.89</div>
-                <p className="text-xs text-muted-foreground">+20.1% from last month</p>
-                </CardContent>
-                </Card>
-                <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-                <DollarSign className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                <div className="text-2xl font-bold">$45,231.89</div>
-                <p className="text-xs text-muted-foreground">+20.1% from last month</p>
-                </CardContent>
-            </Card>
-            <Card>
-                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-                <DollarSign className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                <div className="text-2xl font-bold">$45,231.89</div>
-                <p className="text-xs text-muted-foreground">+20.1% from last month</p>
-                </CardContent>
-                </Card>
-        </div>
-  )
+    {filteredData.map((asset) => (
+      <Card key={asset.name}>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+          <CardTitle className="text-sm font-medium">{asset.name}</CardTitle>
+          <DollarSign className="h-4 w-4 text-muted-foreground" />
+        </CardHeader>
+        <CardContent>
+          <div className="text-2xl font-bold">${parseFloat(asset.priceUsd).toFixed(2)}</div>
+          <p className="text-xs text-muted-foreground">{asset.changePercent24Hr}% from last 24hr</p>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+  ); 
 }

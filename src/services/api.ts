@@ -34,7 +34,7 @@ export async function fetchCryptoPrices(ids?: string[], search?: string, limit?:
     if (offset) queryParams.append('offset', offset.toString());
 
     // append query strings if any params provided 
-    if (queryParams.toString()) url += `?${queryParams}`; 
+    if (queryParams.toString()) url += `?${queryParams}`;
 
 
     try {
@@ -45,13 +45,10 @@ export async function fetchCryptoPrices(ids?: string[], search?: string, limit?:
                 'Content-Type': 'application/json',
             }
         });
-        if (!response.ok) {
-            console.error(`API Error: ${response.status} ${response.statusText}`);
-            throw new Error(`HTTP status ${response.status}`);
-        }
+        
         const data = await response.json();
-
-        return data.data; 
+        console.log("API response in api.ts", data[0]);
+        return data;  
         
     } catch (error) {
         console.error("Error fetching crypto prices:", error);
