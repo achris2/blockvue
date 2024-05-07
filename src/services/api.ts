@@ -54,46 +54,4 @@ export async function fetchCryptoPrices(ids?: string[], search?: string, limit?:
         console.error("Error fetching crypto prices:", error);
         throw error;
     }
-}
-
-
-
-// import { gzip } from "zlib";
-
-// // Ninja API commodity prices 
-// interface CommodityPrices {
-//     exchange: string;
-//     name: string;
-//     price: number;
-//     updated: string;
-// };
-
-// const ninjaApiKey = process.env.NINJA_API_KEY; 
-
-// export async function fetchCommodityPrices(name: string): Promise<CommodityPrices> { 
-//     if (!ninjaApiKey) {
-//         throw new Error("Missing Ninja API key");
-//     }
-//     const url = `https://api.api-ninjas.com/v1/commodityprice?name=${encodeURIComponent(name)}`;
-
-//     try {
-//         const response = await fetch(url, {
-//             method: 'GET',
-//             headers: {
-//                 'X-Api-Key': ninjaApiKey,
-//                 'Content-Type': 'application/json',
-//             }
-//         });
-//         if (!response.ok) {
-//             console.error(`API Error: ${response.status} ${response.statusText}`);
-//             throw new Error(`HTTP status ${response.status}`);
-//         }
-//         const data = await response.json();
-
-//         return data;
-        
-//     } catch (error) {
-//         console.error("Error fetching commodity prices:", error);
-//         throw error;
-//     }
-// }
+}; 
