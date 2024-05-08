@@ -17,9 +17,10 @@ export default function TopCrypto({ cryptoData }: ChildrenProps) {
   }; 
 
   return (
-    <div className="w-full col-span-1 relative lg:h-[70vh] h-[50vh] m-auto p-4 border rounded-lg bg-secondary overflow scroll">
+    <>
+    <div className="w-full col-span-1 relative lg:h-[70vh] h-[50vh] m-auto p-4 border rounded-lg bg-secondary overflow-auto">
       <h3 className="text-lg font-bond text-secondary-foreground"></h3>
-      <Table className="w-full">
+      <Table className="w-full relative">
     <TableCaption>leaderboard: top 10 cryptocurrencies by market cap</TableCaption>
     <TableHeader>
       <TableRow className="bg-secondary">
@@ -41,6 +42,7 @@ export default function TopCrypto({ cryptoData }: ChildrenProps) {
     </TableBody>
   </Table>
   
-    </div>
+      </div>
+      </>
   )
 }
